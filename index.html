@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.js"></script>
+		<script>
+			$(function(){
+				var $left = $(".left li")
+				console.log($left)
+				var $right = $(".right")
+				console.log($right)
+				var $box = $("#box")
+				$left.each(function(index,ele){
+					$(ele).mouseover(function(){
+						$(this).addClass("active").siblings().removeClass("active")
+						$right.show().find("li").eq(index).show().siblings().hide();
+					})
+				})
+				$box.mouseleave(function(){
+				$left.removeClass("active");
+				$right.hide();
+			});
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="left">
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+				<li>男装</li>
+			</ul>
+			<ul class="right">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+				<li>15</li>
+				<li>16</li>
+			</ul>
+		</div>
+	</body>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+			list-style: none;
+		}
+		#box{
+			width: 1052px;
+			height:496px;
+			margin:20px auto;
+			background: #0b6983;
+		}
+		#box .left{
+			width:200px;
+			height:496px;
+			background:#006DA3;
+			color:#fff;	
+			float: left;
+		}
+		#box .left li{
+			line-height: 31px;
+			text-align: center;
+		}
+		#box .right{
+			width:852px;
+			height:496px;
+            position: relative;
+			float: left;
+			display: none;
+			
+		}
+		.left li.active{
+			background: #7A0000;
+		}
+		.right li{
+			position: absolute;
+			background: #7A0000;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			line-height: 496px;
+			font-weight: bold;
+			font-size: 200px;
+			color: #FFF;
+		}
+	</style>
+</html>
